@@ -1,6 +1,6 @@
 # API Testing Collection – Postman
 
-This foder  contains a complete Postman API testing collection and environment for the following public APIs:
+This foder contains a complete Postman API testing collection and environment for the following public APIs:
 
 ### APIs Covered:
 - [Restful API](https://restful-api.dev/)
@@ -18,8 +18,6 @@ This foder  contains a complete Postman API testing collection and environment f
 
 ---
 
----
-
 ## Notes
 
 - The `accessToken` is required for endpoints like Place/Update/Delete Order.
@@ -28,7 +26,7 @@ This foder  contains a complete Postman API testing collection and environment f
 
 ---
 
-## ✍️ Created by:
+## Created by:
 **Hiba Fatima**  
 QA Batch 05  
-Submission for API Testing Assignment
+
