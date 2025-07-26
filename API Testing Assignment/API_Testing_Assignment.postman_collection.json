@@ -1,0 +1,139 @@
+{
+  "info": {
+    "name": "Full API Testing Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Restful API",
+      "item": [
+        {
+          "name": "Create Object (POST)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Laptop\",\n  \"data\": {\n    \"brand\": \"Dell\",\n    \"model\": \"Inspiron\"\n  }\n}"
+            },
+            "url": {"raw": "https://restful-api.dev/objects"}
+          }
+        },
+        {
+          "name": "Get All Objects (GET)",
+          "request": {"method": "GET", "url": "https://restful-api.dev/objects"}
+        },
+        {
+          "name": "Update Object (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Laptop\",\n  \"data\": {\n    \"brand\": \"HP\",\n    \"model\": \"Pavilion\"\n  }\n}"
+            },
+            "url": {"raw": "https://restful-api.dev/objects/{objectId}"}
+          }
+        },
+        {
+          "name": "Partial Update (PATCH)",
+          "request": {
+            "method": "PATCH",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Patched Laptop\"\n}"
+            },
+            "url": {"raw": "https://restful-api.dev/objects/{objectId}"}
+          }
+        },
+        {
+          "name": "Delete Object (DELETE)",
+          "request": {
+            "method": "DELETE",
+            "url": {"raw": "https://restful-api.dev/objects/{objectId}"}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Simple Books API",
+      "item": [
+        {
+          "name": "Status Check (GET)",
+          "request": {"method": "GET", "url": "https://simple-books-api.glitch.me/status"}
+        },
+        {
+          "name": "Get Books (GET)",
+          "request": {"method": "GET", "url": "https://simple-books-api.glitch.me/books"}
+        },
+        {
+          "name": "Get Token (POST)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {"mode": "raw", "raw": "{\n  \"clientName\": \"Hiba\",\n  \"clientEmail\": \"hiba123@example.com\"\n}"},
+            "url": {"raw": "https://simple-books-api.glitch.me/api-clients"}
+          }
+        },
+        {
+          "name": "Place Order (POST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"},
+              {"key": "Authorization", "value": "Bearer {accessToken}"}
+            ],
+            "body": {"mode": "raw", "raw": "{\n  \"bookId\": 1,\n  \"customerName\": \"Hiba Fatima\"\n}"},
+            "url": {"raw": "https://simple-books-api.glitch.me/orders"}
+          }
+        },
+        {
+          "name": "Update Order (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"},
+              {"key": "Authorization", "value": "Bearer {accessToken}"}
+            ],
+            "body": {"mode": "raw", "raw": "{\n  \"bookId\": 1,\n  \"customerName\": \"Updated Name\"\n}"},
+            "url": {"raw": "https://simple-books-api.glitch.me/orders/{orderId}"}
+          }
+        },
+        {
+          "name": "Partial Update Order (PATCH)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"},
+              {"key": "Authorization", "value": "Bearer {accessToken}"}
+            ],
+            "body": {"mode": "raw", "raw": "{\n  \"customerName\": \"Patched Name\"\n}"},
+            "url": {"raw": "https://simple-books-api.glitch.me/orders/{orderId}"}
+          }
+        },
+        {
+          "name": "Delete Order (DELETE)",
+          "request": {
+            "method": "DELETE",
+            "header": [{"key": "Authorization", "value": "Bearer {accessToken}"}],
+            "url": {"raw": "https://simple-books-api.glitch.me/orders/{orderId}"}
+          }
+        }
+      ]
+    },
+    {
+      "name": "REST Countries API",
+      "item": [
+        {
+          "name": "Get All Countries (GET)",
+          "request": {"method": "GET", "url": "https://restcountries.com/v3.1/all"}
+        },
+        {
+          "name": "Get Country by Name (GET)",
+          "request": {"method": "GET", "url": "https://restcountries.com/v3.1/name/pakistan"}
+        }
+      ]
+    }
+  ]
+}
