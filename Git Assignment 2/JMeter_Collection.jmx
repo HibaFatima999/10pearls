@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Book API Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.serialize_threadgroups">false</stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+
+        <!-- CSV -->
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+          <stringProp name="filename">books.csv</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames">customerName</stringProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+
+        <!-- POST Create Order -->
+        <HTTPSamplerProxy testname="POST Create Order" enabled="true" guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="customerName" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${customerName}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">customerName</stringProp>
+              </elementProp>
+              <elementProp name="bookId" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">1</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">bookId</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">simple-books-api.glitch.me</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/orders</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <!-- JSON Extractor -->
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Order ID" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">orderId</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExpressions">$.orderId</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">1</stringProp>
+          </JSONPostProcessor>
+        </hashTree>
+
+        <!-- GET Order -->
+        <HTTPSamplerProxy testname="GET Order" enabled="true" guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy">
+          <stringProp name="HTTPSampler.domain">simple-books-api.glitch.me</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/orders/${orderId}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assert Customer Name" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="123456">${customerName}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+        </hashTree>
+
+        <!-- PATCH Order -->
+        <HTTPSamplerProxy testname="PATCH Update Order" enabled="true" guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="customerName" elementType="HTTPArgument">
+                <stringProp name="Argument.name">customerName</stringProp>
+                <stringProp name="Argument.value">Updated Name</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">simple-books-api.glitch.me</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/orders/${orderId}</stringProp>
+          <stringProp name="HTTPSampler.method">PATCH</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+
+        <!-- PUT Order -->
+        <HTTPSamplerProxy testname="PUT Update Order" enabled="true" guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="customerName" elementType="HTTPArgument">
+                <stringProp name="Argument.name">customerName</stringProp>
+                <stringProp name="Argument.value">Put Updated Name</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="bookId" elementType="HTTPArgument">
+                <stringProp name="Argument.name">bookId</stringProp>
+                <stringProp name="Argument.value">1</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">simple-books-api.glitch.me</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/orders/${orderId}</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+
+        <!-- DELETE -->
+        <HTTPSamplerProxy testname="DELETE Order" enabled="true" guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy">
+          <stringProp name="HTTPSampler.domain">simple-books-api.glitch.me</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/orders/${orderId}</stringProp>
+          <stringProp name="HTTPSampler.method">DELETE</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+
+        <!-- Final GET -->
+        <HTTPSamplerProxy testname="GET Verify Deletion" enabled="true" guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy">
+          <stringProp name="HTTPSampler.domain">simple-books-api.glitch.me</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/orders/${orderId}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assert Deletion (Not Found)" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="123456">Not Found</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+        </hashTree>
+
+        <!-- Listeners -->
+        <ViewResultsFullVisualizer guiclass="ViewResultsFullVisualizer" testclass="ViewResultsFullVisualizer" testname="View Results Tree" enabled="true"/>
+        <hashTree/>
+        <SummaryReport guiclass="SummaryReportGui" testclass="SummaryReport" testname="Summary Report" enabled="true"/>
+        <hashTree/>
+
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
