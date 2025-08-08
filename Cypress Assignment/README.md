@@ -46,6 +46,7 @@ The `node_modules/` directory contains all project dependencies and is not uploa
 
 To install these dependencies, run:
 npm install
+
 This will recreate the `node_modules/` folder based on the `package.json` and `package-lock.json` files.
 
 ## Prepared by:
