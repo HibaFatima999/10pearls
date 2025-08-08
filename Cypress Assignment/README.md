@@ -13,6 +13,7 @@ It uses Page Object Model (POM) for better structure and Custom Commands for reu
 
 ## **Project Structure**
 cypress-assignment/
+
 │
 
 ├── cypress/
