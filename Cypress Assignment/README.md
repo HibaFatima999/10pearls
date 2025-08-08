@@ -1,4 +1,4 @@
-echo "**Cypress Assignment – SauceDemo Automation**
+"**Cypress Assignment – SauceDemo Automation**
 **Overview**
 This project is for automating tests on SauceDemo using Cypress.
 It uses Page Object Model (POM) for better structure and Custom Commands for reusable steps.
