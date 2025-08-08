@@ -22,11 +22,9 @@ cypress-assignment/
 
 │ ├── pageObjects/ # POM classes (loginPage.js, inventoryPage.js)
 
-│ ├── support/ # Custom commands & support setup
+│ ├── support/ # Custom commands & support setup (commands.js,e2e.js)
 
-│ ├── screenshots/ # Auto-saved screenshots (on failure)
-
-│ ├── videos/ # Auto-saved test run videos
+│ ├── videos/ # Auto-saved test run video
 
 │
 
