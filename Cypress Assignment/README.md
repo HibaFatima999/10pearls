@@ -13,8 +13,8 @@ It uses Page Object Model (POM) for better structure and Custom Commands for reu
 
 ## **Project Structure**
 cypress-assignment/
-
 │
+
 ├── cypress/
 
 │ ├── e2e/ # Test files (e.g., login.cy.js)
