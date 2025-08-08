@@ -14,18 +14,31 @@ It uses Page Object Model (POM) for better structure and Custom Commands for reu
 ## **Project Structure**
 cypress-assignment/
 │
+
 ├── cypress/
+
 │ ├── e2e/ # Test files (e.g., login.cy.js)
+
 │ ├── pageObjects/ # POM classes (loginPage.js, inventoryPage.js)
+
 │ ├── support/ # Custom commands & support setup
+
 │ ├── screenshots/ # Auto-saved screenshots (on failure)
+
 │ ├── videos/ # Auto-saved test run videos
+
 │
+
 ├── OUTPUT TERMINAL SCREENSHOTS.pdf # Test run terminal output screenshots
+
 ├── .gitignore # Ignore node_modules, screenshots, videos
+
 ├── cypress.config.js # Cypress config file
+
 ├── package.json # Dependencies & scripts
+
 ├── package-lock.json # Auto-generated lock file
+
 └── node_modules/ # Installed dependencies 
 
 
