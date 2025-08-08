@@ -42,7 +42,7 @@ cypress-assignment/
 
 
 ## **Note on node_modules/**
-The `node_modules/` directory contains all project dependencies and is not uploaded to GitHub because it is large and can be regenerated.  
+The `node_modules/` directory contains all project dependencies and is not uploaded to GitHub because it is large and contains too many folders and files in it which is causing difficulty in uploading on github and it can be regenerated.  
 
 To install these dependencies, run:
 npm install
