@@ -1,7 +1,5 @@
 # Selenium Assignment – Daraz Search & Shipping Test
 
-##Overview##
-
 This project is an automated **Selenium Python test** that:
 1. Opens the Daraz website.
 2. Searches for "electronics".
