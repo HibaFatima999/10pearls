@@ -44,26 +44,37 @@ Selenium Assignment/
 
 
 ## NOTE TO READ BEFORE RUNNING THE PROJECT
-All project folders and files eg. venv/ , .pytest_cache/ etc. are not uploaded on github because it contains further folders and files in it like site packages that are large in number and causing difficulty while uploading.
-So before running the project some dependencies/site-packages needs to be regeneraed or installed explicitely to align it with the given project.
-
-This test relies on HTML structure, CSS selectors, and element attributes from the Daraz website.
+*All project folders and files eg. venv/ , .pytest_cache/ etc. are not uploaded on github because it contains further folders and files in it like site packages that are large in number and causing difficulty while uploading.
+*So before running the project some dependencies/site-packages needs to be regeneraed or installed explicitely to align it with the given project and virtual environment needs to be created first by using venv\Scripts\Activate.ps1
+*Then run it using pytest -v
+*This test relies on HTML structure, CSS selectors, and element attributes from the Daraz website.
 If Daraz updates its:
+
 HTML element structure
+
 Class names or IDs
+
 XPaths or CSS selectors
+
 Page flow or navigation
+
 then the locators in our POM classes may break, causing:
+
 -Element not found errors (NoSuchElementException)
+
 -Failing steps in filtering, price setting, or product opening
+
 -Incorrect product counts or failure to detect free shipping
 
 Solution if this happens:
+
 -Reinspect the Daraz page using browser DevTools (F12).
+
 -Update the element locators in:
   home_page.py
   search_results_page.py
   product_page.py
+  
 Keep locators as flexible as possible (avoid overly strict XPaths that may break easily).
 
 ## Prepared by:
