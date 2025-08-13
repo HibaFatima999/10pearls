@@ -53,13 +53,13 @@ Selenium Assignment/
 
 If Daraz updates its:
 
-HTML element structure
+-HTML element structure
 
-Class names or IDs
+-Class names or IDs
 
-XPaths or CSS selectors
+-XPaths or CSS selectors
 
-Page flow or navigation
+-Page flow or navigation
 
 then the locators in our POM classes may break, causing:
 
@@ -74,14 +74,7 @@ Solution if this happens:
 -Reinspect the Daraz page using browser DevTools (F12).
 
 -Update the element locators in:
-
-  home_page.py
-  
-  search_results_page.py
-  
-  product_page.py
-  
-Keep locators as flexible as possible (avoid overly strict XPaths that may break easily).
+home_page.py , search_results_page.py , product_page.py
 
 ## Prepared by:
 **Hiba Fatima**  
