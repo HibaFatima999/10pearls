@@ -30,6 +30,7 @@ Selenium Assignment/
 │   │   └── product_page.py            # Methods for product details page
 
 │   └── tests/
+
 │       └── test_search_and_shipping.py # Main test script
 
 ├── conftest.py                        # Pytest fixtures (driver setup & teardown)
