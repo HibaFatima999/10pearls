@@ -1,6 +1,7 @@
 # Selenium Assignment – Daraz Search & Shipping Test
 
-##Overview
+##Overview##
+
 This project is an automated **Selenium Python test** that:
 1. Opens the Daraz website.
 2. Searches for "electronics".
@@ -45,9 +46,13 @@ Selenium Assignment/
 
 ## NOTE TO READ BEFORE RUNNING THE PROJECT
 *All project folders and files eg. venv/ , .pytest_cache/ etc. are not uploaded on github because it contains further folders and files in it like site packages that are large in number and causing difficulty while uploading.
+
 *So before running the project some dependencies/site-packages needs to be regeneraed or installed explicitely to align it with the given project and virtual environment needs to be created first by using venv\Scripts\Activate.ps1
+
 *Then run it using pytest -v
+
 *This test relies on HTML structure, CSS selectors, and element attributes from the Daraz website.
+
 If Daraz updates its:
 
 HTML element structure
@@ -71,8 +76,11 @@ Solution if this happens:
 -Reinspect the Daraz page using browser DevTools (F12).
 
 -Update the element locators in:
+
   home_page.py
+  
   search_results_page.py
+  
   product_page.py
   
 Keep locators as flexible as possible (avoid overly strict XPaths that may break easily).
