@@ -44,7 +44,7 @@ Selenium Assignment/
 
 
 ## NOTE TO READ BEFORE RUNNING THE PROJECT
-All project files eg. (venv) etc. are not uploaded on github because it contains further folders and files in it like site packages that are large in number and causing difficulty while uploading.
+All project folders and files eg. venv/ , .pytest_cache/ etc. are not uploaded on github because it contains further folders and files in it like site packages that are large in number and causing difficulty while uploading.
 So before running the project some dependencies/site-packages needs to be regeneraed or installed explicitely to align it with the given project.
 
 This test relies on HTML structure, CSS selectors, and element attributes from the Daraz website.
