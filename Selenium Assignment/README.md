@@ -10,7 +10,8 @@ This project is an automated **Selenium Python test** that:
 6. Opens the first product in the results.
 7. Checks if **free shipping** is available for that product.
 
-The framework uses the **Page Object Model (POM)** for clean separation between test steps and page interactions.
+The framework uses the Page Object Model (POM) for clean separation between test steps and page interactions.
+
 ---
 ## 📂 Project Structure
 Selenium Assignment/
