@@ -14,18 +14,30 @@ The framework uses the **Page Object Model (POM)** for clean separation between 
 ---
 ## 📂 Project Structure
 Selenium Assignment/
+
 ├── venv/                              # Virtual environment folder
+
 ├── src/
+
 │   ├── pages/
+
 │   │   ├── base_page.py               # Base page class with common Selenium actions
+
 │   │   ├── home_page.py               # Methods for interacting with Daraz homepage
+
 │   │   ├── search_results_page.py     # Methods for filtering & interacting with search results
+
 │   │   └── product_page.py            # Methods for product details page
+
 │   └── tests/
 │       └── test_search_and_shipping.py # Main test script
+
 ├── conftest.py                        # Pytest fixtures (driver setup & teardown)
+
 ├── requirements.txt                   # Python dependencies
+
 ├── .gitignore                         # Files and folders to ignore in Git
+
 └── README.md                          # Project documentation
 
 
